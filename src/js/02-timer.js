@@ -47,6 +47,9 @@ function timerRun() {
   intervalId = setInterval(() => {
     let nowTime = Date.now();
     let msTimeDifference = selectedDatesUnix - nowTime;
+    if (msTimeDifference < 1000) {
+      clearInterval(intervalId);
+    }
     let outputData = convertMs(msTimeDifference);
     insertOutputData(outputData);
   }, 1000);
