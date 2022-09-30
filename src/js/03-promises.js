@@ -1,7 +1,7 @@
 const formEl = document.querySelector('.form');
 
-let amountOfPromise = 1;
-let totalDelay = Number(0);
+// let amountOfPromise = 1;
+// let totalDelay = Number(0);
 
 formEl.addEventListener('submit', oncreatePromises);
 
@@ -13,16 +13,10 @@ function oncreatePromises(e) {
   let thisPromise;
 
   for (let i = 0; i < totalAmountOfPromise; i++) {
-    if (amountOfPromise === 1) {
-      totalDelay += startDelay;
-      thisPromise = createPromise(amountOfPromise, totalDelay);
-      returnResultOfPromise(thisPromise, amountOfPromise, totalDelay);
-    } else {
-      totalDelay += delayThisStep;
-      thisPromise = createPromise(amountOfPromise, totalDelay);
-      returnResultOfPromise(thisPromise, amountOfPromise, totalDelay);
-    }
-    amountOfPromise++;
+    thisPromise = createPromise(i + 1, startDelay);
+    returnResultOfPromise(thisPromise, i + 1, startDelay);
+    startDelay += delayThisStep;
+    // amountOfPromise++;
   }
 }
 
